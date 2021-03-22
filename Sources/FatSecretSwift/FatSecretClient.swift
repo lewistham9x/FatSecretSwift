@@ -60,8 +60,8 @@ open class FatSecretClient {
     /** Search
      - Description: Search for a food by name
      */
-    public func searchFood(name: String, completion: @escaping (_ foods: Search) -> ()) {
-        FatSecretParams.fatSecret = ["format":"json", "method":"foods.search", "search_expression":name] as Dictionary
+    public func searchFood(name: String, max_results: Int = 10, page: Int = 0, completion: @escaping (_ foods: Search) -> ()) {
+        FatSecretParams.fatSecret = ["format":"json", "method":"foods.search", "search_expression":name, "max_results":max_results, "page_number":page] as Dictionary
 
         let components = generateSignature()
         fatSecretRequest(with: components) { data in
@@ -75,7 +75,7 @@ open class FatSecretClient {
     /** Autocomplete
      - Description: Autocomplete for a food by query
      */
-    public func searchFood(search: String, completion: @escaping (_ foods: Autocomplete) -> ()) {
+    public func autoSearchFood(search: String, completion: @escaping (_ foods: Autocomplete) -> ()) {
         FatSecretParams.fatSecret = ["format":"json", "method":"foods.autocomplete", "expression":search] as Dictionary
 
         let components = generateSignature()
