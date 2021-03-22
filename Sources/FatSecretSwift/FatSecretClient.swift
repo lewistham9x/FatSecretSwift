@@ -71,6 +71,21 @@ open class FatSecretClient {
             completion(search!)
         }
     }
+    
+    /** Autocomplete
+     - Description: Autocomplete for a food by query
+     */
+    public func searchFood(search: String, completion: @escaping (_ foods: Autocomplete) -> ()) {
+        FatSecretParams.fatSecret = ["format":"json", "method":"foods.autocomplete", "expression":search] as Dictionary
+
+        let components = generateSignature()
+        fatSecretRequest(with: components) { data in
+            guard let data = data else { return }
+            let model = self.retrieve(data: data, type: [String: Autocomplete].self)
+            let search = model!["suggestions"]
+            completion(search!)
+        }
+    }
 
     /** Food
      - Description: Get a food item by id

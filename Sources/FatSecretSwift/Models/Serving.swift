@@ -7,6 +7,8 @@ public struct Serving: Decodable {
         case transFat = "trans_fat"
         case vitaminA = "vitamin_a"
         case vitaminC = "vitamin_c"
+        case measurementDescription = "measurement_description"
+        case servingDescription = "serving_description"
     }
 
     public let calcium: String?
@@ -26,11 +28,13 @@ public struct Serving: Decodable {
     public let transFat: String?
     public let vitaminA: String?
     public let vitaminC: String?
+    public let measurementDescription: String?
+    public let servingDescription: String?
 
     public init(calcium: String?, calories: String?, carbohydrate: String?, cholesterol: String?, fat: String?,
                 fiber: String?, iron: String?, monounsaturatedFat: String?, polyunsaturatedFat: String?,
                 potassium: String?, protein: String?, saturatedFat: String?, sodium: String?, sugar: String?,
-                transFat: String?, vitaminA: String?, vitaminC: String?) {
+                transFat: String?, vitaminA: String?, vitaminC: String?, measurementDescription: String?, servingDescription: String?) {
         self.calcium = calcium
         self.calories = calories
         self.carbohydrate = carbohydrate
@@ -48,5 +52,7 @@ public struct Serving: Decodable {
         self.transFat = transFat
         self.vitaminA = vitaminA
         self.vitaminC = vitaminC
+        self.measurementDescription = measurementDescription
+        self.servingDescription = servingDescription
     }
 }
