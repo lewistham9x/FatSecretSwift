@@ -8,7 +8,7 @@ internal struct FatSecretParams {
                         "oauth_nonce":"",
                         "oauth_version":"1.0"] as Dictionary
 
-    static var fatSecret = [:] as Dictionary<String, String>
+    static var fatSecret = [:] as Dictionary<String, Any>
 
     /// Fat Secret Consumer Secret Key
     static var key = ""
