@@ -12,7 +12,7 @@ internal extension Array {
             }
 
             for (key,value) in FatSecretParams.fatSecret {
-                array.append((key: key, value: value as! String))
+                array.append((key: key, value: String(describing: value)))
             }
 
             return array.sorted(by: { $0 < $1 })
